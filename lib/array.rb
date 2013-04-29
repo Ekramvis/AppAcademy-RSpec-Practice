@@ -33,6 +33,25 @@ class Array
 
     res
   end
+
+  def stock_picker
+    days = []
+    max_sale = 0
+
+    self.each_with_index do |price1, day1|
+      self.each_with_index do |price2, day2|
+        next if day2 <= day1
+        if price2 - price1 > max_sale
+          max_sale = price2 - price1
+          days[0] = day1
+          days[1] = day2
+        end
+      end
+    end
+
+    days
+  end
+
 end
 
 

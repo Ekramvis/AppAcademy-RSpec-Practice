@@ -39,5 +39,38 @@ describe Array do
     end
   end
 
+  describe "#stock_picker" do
+    it "returns nil if no profitable pairs exist" do
+      [5,4,3,2,1].stock_picker.should == []
+    end
 
+    it "returns a pair of days" do
+      [1,2,3,4,5].stock_picker.size.should == 2
+    end
+
+    it "returns the correct pair of days when profit" do
+      [3,0,6,1,8,4,9].stock_picker.should == [1,6]
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
