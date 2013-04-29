@@ -16,7 +16,6 @@ describe Array do
   end
 
   describe "#two_sum" do
-
     it "returns false if no pairs sum to zero" do
       [1,2,3].two_sum.should be_false
     end
@@ -26,6 +25,19 @@ describe Array do
     end
   end
 
+  describe "#my_transpose" do
+    it "transposes a single row into columns" do
+      [[1,2,3]].my_transpose.should == [[1],[2],[3]]
+    end
+
+    it "transposes multiple rows into columns" do
+      [[1,2,3],[1,2,3],[1,2,3]].my_transpose.should == [[1,1,1],[2,2,2],[3,3,3]]
+    end
+
+    it "transposes uneven rows into columns" do
+      [[1,2,3,4],[1,2,3,4]].my_transpose.should == [[1,1],[2,2],[3,3],[4,4]]
+    end
+  end
 
 
 end

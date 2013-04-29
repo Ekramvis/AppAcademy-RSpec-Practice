@@ -22,4 +22,21 @@ class Array
     false
   end
 
+  def my_transpose
+    res = Array.new(self[0].size) {[]}
+
+    self[0].size.times do |i|
+      self.size.times do |j|
+        res[i][j] = self[j][i]
+      end
+    end
+
+    res
+  end
 end
+
+
+
+
+
+
