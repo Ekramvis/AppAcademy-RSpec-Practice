@@ -46,7 +46,6 @@ describe TreeNode do
   end
 
   describe "#dfs(target)" do
-
     it "returns self if target matches its value" do
       root.dfs(10).should == root
     end
@@ -63,8 +62,26 @@ describe TreeNode do
       root.children[0].children[1].should_receive(:value).ordered
       root.dfs(20)
     end
-
   end
 
+  describe "#bfs(target)" do
+    it "returns self if target matches its value" do
+      root.bfs(10).should == root
+    end
 
+    it "returns nil if it has no children and doesn't match" do
+      t = TreeNode.new(100)
+      t.bfs(5).should be_nil
+    end
+
+    it "tests children in correct order" do
+      root.should_receive(:value).ordered
+      root.children[0].should_receive(:value).ordered
+      root.children[1].should_receive(:value).ordered
+      root.children[0].children[0].should_receive(:value).ordered
+      root.children[0].children[1].should_receive(:value).ordered
+      root.bfs(20)
+    end
+
+  end
 end

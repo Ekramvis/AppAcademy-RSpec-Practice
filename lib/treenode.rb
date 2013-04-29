@@ -24,4 +24,21 @@ class TreeNode
     nil
   end
 
+  def bfs(target)
+    queue = [self]
+
+    until queue.empty?
+      test = queue.shift
+      if test.value == target
+        return test
+      else
+        test.children.each do |child|
+          queue << child
+        end
+      end
+    end
+
+    nil
+  end
+
 end
